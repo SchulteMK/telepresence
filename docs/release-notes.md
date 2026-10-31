@@ -56,6 +56,12 @@ On Linux, NetworkManager adopted the VIF as soon as it appeared and sent its con
 With <code>--docker-run</code>, <code>--docker-build</code>, or <code>telepresence docker-run</code>, the arguments passed to the container after the image were searched for docker run flags. A container argument such as <code>-addr</code> was rejected as a detach flag, and <code>--name</code> or <code>--rm</code> in the container arguments was taken as the container's name or removal flag. Only the arguments that precede the image are now treated as docker run flags. The image is also found correctly after a shorthand flag with an attached value, such as <code>-p8080:8080</code>, and after <code>-a</code>, <code>-c</code>, <code>--disable-content-trust</code>, and <code>--use-api-socket</code>.
 </div>
 
+## <div style="display:flex;"><img src="images/bugfix.png" alt="bugfix" style="width:30px;height:fit-content;"/><div style="display:flex;margin-left:7px;">Anonymized gather-logs output no longer reveals namespaces</div></div>
+<div style="margin-left: 15px">
+
+The <code>--anonymize</code> flag of <code>telepresence gather-logs</code> took the extension of each pod's log and manifest file to be part of the pod's namespace, so the real namespace names were left in every collected file. The anonymized pod files also lost their <code>.log</code> and <code>.yaml</code> extensions, and a pod's log and manifest were given different anonymized names. Namespaces are now replaced in all collected files, and a pod's files keep their extensions and share one anonymized name.
+</div>
+
 ## Version 2.32.3 <span style="font-size: 16px;">(October 21)</span>
 ## <div style="display:flex;"><img src="images/bugfix.png" alt="bugfix" style="width:30px;height:fit-content;"/><div style="display:flex;margin-left:7px;">[Intercept creation no longer hangs on a denied workload watch](https://github.com/telepresenceio/telepresence/pull/4341)</div></div>
 <div style="margin-left: 15px">
