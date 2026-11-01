@@ -68,6 +68,12 @@ With <code>--docker-run</code>, <code>--docker-build</code>, or <code>telepresen
 The <code>--anonymize</code> flag of <code>telepresence gather-logs</code> took the extension of each pod's log and manifest file to be part of the pod's namespace, so the real namespace names were left in every collected file. The anonymized pod files also lost their <code>.log</code> and <code>.yaml</code> extensions, and a pod's log and manifest were given different anonymized names. Namespaces are now replaced in all collected files, and a pod's files keep their extensions and share one anonymized name.
   </Body>
 </Note>
+<Note>
+	<Title type="feature" docs="install/client">Homebrew installs on Linux ARM64 are checksum verified</Title>
+	<Body>
+The Homebrew formula now carries the checksum of the <code>telepresence-linux-arm64</code> binary, so Homebrew verifies the download on Linux ARM64 as it does on the other platforms. The Linux install instructions now include Homebrew.
+  </Body>
+</Note>
 ## Version 2.32.3 <span style={{fontSize:'16px'}}>(October 21)</span>
 <Note>
 	<Title type="bugfix" docs="https://github.com/telepresenceio/telepresence/pull/4341">Intercept creation no longer hangs on a denied workload watch</Title>
